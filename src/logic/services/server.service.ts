@@ -2,6 +2,7 @@ import { IServerRepository } from "../../data/interfaces/server-repository.inter
 import { ServerWithPlanDto } from "../../data/dtos/servers/server-with-plan.dto";
 import { UpdateServerDto } from "../../data/dtos/servers/update-server.dto";
 import { CreateServerDto } from "../../data/dtos/servers/create-server.dto";
+import { ServerNotFoundException } from "./exceptions/server-not-found.exception";
 
 export class ServerService {
   constructor(private readonly _serverRepo: IServerRepository) {}
@@ -10,7 +11,7 @@ export class ServerService {
     const foundServer = await this._serverRepo.getServerById(id);
 
     if (!foundServer) {
-      throw new Error("nema servera");
+      throw new ServerNotFoundException(id);
     }
 
     return foundServer;
@@ -20,7 +21,7 @@ export class ServerService {
     const foundServer = await this._serverRepo.getServerById(id);
 
     if (!foundServer) {
-      throw new Error("No server with this id");
+      throw new ServerNotFoundException(id);
     }
 
     return await this._serverRepo.updateServer(id, serverUpdate);
@@ -30,7 +31,7 @@ export class ServerService {
     const server = await this._serverRepo.getServerById(id);
 
     if (!server) {
-      throw new Error("Server not found");
+      throw new ServerNotFoundException(id);
     }
 
     return await this._serverRepo.deleteServer(id);
