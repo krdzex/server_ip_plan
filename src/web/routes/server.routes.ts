@@ -7,4 +7,5 @@ serverRouter.get("/:id", serverController.getServerById.bind(serverController));
 serverRouter.put("/:id", serverController.updateServer.bind(serverController));
 serverRouter.delete("/:id", serverController.deleteServer.bind(serverController));
 serverRouter.post("/", serverController.createServer.bind(serverController));
+
 export { serverRouter };

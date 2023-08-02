@@ -1,12 +1,14 @@
 import bodyParser from "body-parser";
 import express from "express";
 import { serverRouter } from "./web/routes/server.routes";
+import { ipPlanRouter } from "./web/routes/ip-plan.routes";
 
 function boostrap() {
   const app = express();
 
   app.use(bodyParser.json());
   app.use("/servers", serverRouter);
+  app.use("/ip-plans", ipPlanRouter);
 
   const port = process.env.PORT || 3000
   app.listen(port, () => {

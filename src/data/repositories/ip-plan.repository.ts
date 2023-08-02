@@ -4,7 +4,7 @@ import { IIpPlanRepository } from "../interfaces/ip-plan-repository.interface";
 
 const prisma = new PrismaClient();
 
-export class IPPlanRepository implements IIpPlanRepository {
+export class IpPlanRepository implements IIpPlanRepository {
   async getIpPlanById(id: number): Promise<IpPlanDto | null> {
     const ipPlan = await prisma.iPPlan.findUnique({
       where: { id },
