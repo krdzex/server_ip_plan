@@ -1,6 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import { IpPlanDto } from "../dtos/ip-plans/ip-plan.dto";
 import { IIpPlanRepository } from "../interfaces/ip-plan-repository.interface";
+import { CreateIpPlanDto } from "../dtos/ip-plans/create-ip-plan.dto";
 
 const prisma = new PrismaClient();
 
@@ -11,5 +12,11 @@ export class IpPlanRepository implements IIpPlanRepository {
     });
 
     return ipPlan;
+  }
+
+  async createIpPlan(ipPlan: CreateIpPlanDto): Promise<void> {
+    await prisma.iPPlan.create({
+      data: ipPlan,
+    });
   }
 }
