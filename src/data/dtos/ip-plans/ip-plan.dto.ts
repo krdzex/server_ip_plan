@@ -1,10 +1,8 @@
-import { ServerStatus } from "@prisma/client"
-
-export class ServerWithPlanDto {
+export class IpPlanDto {
   constructor(
     public readonly id: Number,
     public readonly name: String,
     public readonly description: String,
-    public readonly status: ServerStatus
+    public readonly price: Number
   ) {}
 }

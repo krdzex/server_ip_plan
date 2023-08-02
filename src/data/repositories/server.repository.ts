@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { IServerRepository } from "../interfaces/i-server-repository";
-import { ServerWithPlanDto } from "../dtos/server-with-plan.dto";
+import { ServerWithPlanDto } from "../dtos/servers/server-with-plan.dto";
 
 const prisma = new PrismaClient();
 
@@ -13,7 +13,7 @@ export class ServerRepository implements IServerRepository {
         name: true,
         description: true,
         status: true,
-        ipPlan: {
+        ipPlan:  {
           select: {
             id: true,
             name: true,

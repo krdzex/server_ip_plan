@@ -1,5 +1,5 @@
 import { IServerRepository } from "../../data/interfaces/i-server-repository";
-import { ServerWithPlanDto } from "../../data/dtos/server-with-plan.dto";
+import { ServerWithPlanDto } from "../../data/dtos/servers/server-with-plan.dto";
 
 export class ServerService {
   constructor(private readonly _serverRepo: IServerRepository) {}
