@@ -28,9 +28,19 @@ export class IpPlanRepository implements IIpPlanRepository {
     });
   }
 
-  async deleteIpPlan(id: number): Promise<void> {
-    await prisma.iPPlan.delete({
-      where: { id },
+  async deleteIpPlanWithServers(id: number): Promise<void> {
+    const deleteServers = prisma.server.deleteMany({
+      where: {
+        ipPlanId: id,
+      },
     });
+
+    const deleteIpPlan = prisma.iPPlan.delete({
+      where: {
+        id,
+      },
+    });
+
+    await prisma.$transaction([deleteServers, deleteIpPlan]);
   }
 }

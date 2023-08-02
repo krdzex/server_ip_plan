@@ -37,6 +37,6 @@ export class IpPlanService {
       throw new Error("nema plana");
     }
 
-    return await this._ipPlanRepo.deleteIpPlan(id);
+    return await this._ipPlanRepo.deleteIpPlanWithServers(id);
   }
 }
