@@ -1,6 +1,6 @@
 import { IServerRepository } from "../../data/interfaces/server-repository.interface";
 import { ServerWithPlanDto } from "../../data/dtos/servers/server-with-plan.dto";
-import { ServerUpdateDto } from "../../data/dtos/servers/update-server.dto";
+import { UpdateServerDto } from "../../data/dtos/servers/update-server.dto";
 import { CreateServerDto } from "../../data/dtos/servers/create-server.dto";
 
 export class ServerService {
@@ -16,7 +16,7 @@ export class ServerService {
     return foundServer;
   }
 
-  async updateServer(id: number, serverUpdate: ServerUpdateDto): Promise<void> {
+  async updateServer(id: number, serverUpdate: UpdateServerDto): Promise<void> {
     const foundServer = await this._serverRepo.getServerById(id);
 
     if (!foundServer) {

@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { ServerService } from "../../logic/services/server.service";
-import { ServerUpdateDto } from "../../data/dtos/servers/update-server.dto";
+import { UpdateServerDto } from "../../data/dtos/servers/update-server.dto";
 import { CreateServerDto } from "../../data/dtos/servers/create-server.dto";
 
 export class ServerController {
@@ -16,7 +16,7 @@ export class ServerController {
 
   async updateServer(req: Request, res: Response, next: NextFunction) {
     try {
-      const serverUpdate: ServerUpdateDto = req.body;
+      const serverUpdate: UpdateServerDto = req.body;
       const { id } = req.params;
       await this.serverService.updateServer(Number(id), serverUpdate);
       res.status(200).json({ message: "Server updated successfully" });

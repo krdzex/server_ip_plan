@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import { IServerRepository } from "../interfaces/server-repository.interface";
 import { ServerWithPlanDto } from "../dtos/servers/server-with-plan.dto";
-import { ServerUpdateDto } from "../dtos/servers/update-server.dto";
+import { UpdateServerDto } from "../dtos/servers/update-server.dto";
 import { CreateServerDto } from "../dtos/servers/create-server.dto";
 
 const prisma = new PrismaClient();
@@ -27,7 +27,7 @@ export class ServerRepository implements IServerRepository {
     });
   }
 
-  async updateServer(id: number, serverUpdate: ServerUpdateDto): Promise<void> {
+  async updateServer(id: number, serverUpdate: UpdateServerDto): Promise<void> {
     await prisma.server.update({
       where: { id },
       data: serverUpdate,
