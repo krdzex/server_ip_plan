@@ -32,4 +32,10 @@ export class ServerRepository implements IServerRepository {
       data: serverUpdate,
     });
   }
+
+  async deleteServer(id: number): Promise<void> {
+    await prisma.server.delete({
+      where: { id },
+    });
+  }
 }
