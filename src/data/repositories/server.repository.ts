@@ -1,11 +1,11 @@
 import { PrismaClient } from "@prisma/client";
 import { IServerRepository } from "../interfaces/i-server-repository";
-import { IServer } from "../models/server.model";
+import { ServerWithPlanDto } from "../../logic/services/dtos/server-with-plan.dto";
 
 const prisma = new PrismaClient();
 
 export class ServerRepository implements IServerRepository {
-  async getServerById(id: number): Promise<IServer | null> {
+  async getServerById(id: number): Promise<ServerWithPlanDto | null> {
     return await prisma.server.findUnique({
       where: { id },
       select: {

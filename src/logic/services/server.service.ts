@@ -10,6 +10,7 @@ export class ServerService {
     if (!foundServer) {
       throw new Error("nema servera");
     }
-    return ServerWithPlanDto.from(foundServer);
+    
+    return foundServer;
   }
 }
