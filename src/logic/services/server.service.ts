@@ -24,4 +24,14 @@ export class ServerService {
 
     return await this._serverRepo.updateServer(id, serverUpdate);
   }
+
+  async deleteServer(id: number): Promise<void> {
+    const server = await this._serverRepo.getServerById(id);
+
+    if (!server) {
+      throw new Error('Server not found');
+    }
+    
+    return await this._serverRepo.deleteServer(id);
+  }
 }
