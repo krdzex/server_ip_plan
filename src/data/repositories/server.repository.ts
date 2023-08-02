@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { IServerRepository } from "../interfaces/i-server-repository";
+import { IServerRepository } from "../interfaces/server-repository.interface";
 import { ServerWithPlanDto } from "../dtos/servers/server-with-plan.dto";
 import { ServerUpdateDto } from "../dtos/servers/update-server.dto";
 import { CreateServerDto } from "../dtos/servers/create-server.dto";

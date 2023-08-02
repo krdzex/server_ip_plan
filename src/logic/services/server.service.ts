@@ -1,4 +1,4 @@
-import { IServerRepository } from "../../data/interfaces/i-server-repository";
+import { IServerRepository } from "../../data/interfaces/server-repository.interface";
 import { ServerWithPlanDto } from "../../data/dtos/servers/server-with-plan.dto";
 import { ServerUpdateDto } from "../../data/dtos/servers/update-server.dto";
 import { CreateServerDto } from "../../data/dtos/servers/create-server.dto";
