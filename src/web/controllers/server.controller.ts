@@ -23,4 +23,14 @@ export class ServerController {
       next(err);
     }
   }
+
+  async deleteServer(req: Request, res: Response, next: NextFunction) {
+    try {
+      const { id } = req.params;
+      await this.serverService.deleteServer(Number(id));
+      res.status(200).json({ message: "Server deleted successfully" });
+    } catch (err) {
+      next(err);
+    }
+  }
 }
