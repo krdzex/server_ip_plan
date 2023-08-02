@@ -29,4 +29,14 @@ export class IpPlanService {
 
     return await this._ipPlanRepo.updateIpPlan(id, ipPlanUpdate);
   }
+
+  async deleteIpPlan(id: number): Promise<void> {
+    const foundIpPlan = await this._ipPlanRepo.getIpPlanById(id);
+
+    if (!foundIpPlan) {
+      throw new Error("nema plana");
+    }
+
+    return await this._ipPlanRepo.deleteIpPlan(id);
+  }
 }
