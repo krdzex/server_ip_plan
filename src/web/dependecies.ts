@@ -5,7 +5,10 @@ import { ServerService } from "../logic/services/server.service";
 import { IpPlanController } from "./controllers/ip-plan.controller";
 import { ServerController } from "./controllers/server.controller";
 
-const serverService = new ServerService(new ServerRepository());
+const serverService = new ServerService(
+  new ServerRepository(),
+  new IpPlanRepository()
+);
 const ipPlanService = new IpPlanService(new IpPlanRepository());
 
 export const serverController = new ServerController(serverService);
