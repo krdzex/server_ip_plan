@@ -6,4 +6,5 @@ export interface IIpPlanRepository {
   getIpPlanById(id: number): Promise<IpPlanDto | null>;
   createIpPlan(ipPlan: CreateIpPlanDto): Promise<void>;
   updateIpPlan(id: number, ipPlanUpdate: UpdateIpPlanDto): Promise<void>;
+  deleteIpPlan(id: number): Promise<void>;
 }

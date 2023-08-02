@@ -27,4 +27,10 @@ export class IpPlanRepository implements IIpPlanRepository {
       data: ipPlanUpdate,
     });
   }
+
+  async deleteIpPlan(id: number): Promise<void> {
+    await prisma.iPPlan.delete({
+      where: { id },
+    });
+  }
 }
