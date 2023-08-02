@@ -34,4 +34,14 @@ export class IpPlanController {
       next(err);
     }
   }
+
+  async deleteIpPlan(req: Request, res: Response, next: NextFunction) {
+    try {
+      const { id } = req.params;
+      await this.ipPlanService.deleteIpPlan(Number(id));
+      res.status(200).json({ message: "Ip plan deleted successfully" });
+    } catch (err) {
+      next(err);
+    }
+  }
 }
