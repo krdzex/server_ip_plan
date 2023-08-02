@@ -1,1 +1,3 @@
-export interface IServerRepository {}
+export interface IServerRepository {
+    
+}
