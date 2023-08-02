@@ -5,7 +5,7 @@ import { IServer } from "../models/server.model";
 const prisma = new PrismaClient();
 
 export class ServerRepository implements IServerRepository {
-  async findServerById(id: number): Promise<IServer | null> {
+  async getServerById(id: number): Promise<IServer | null> {
     return await prisma.server.findUnique({
       where: { id },
       select: {
