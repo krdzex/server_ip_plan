@@ -17,34 +17,32 @@ export class ServerController {
   }
 
   async updateServer(req: Request, res: Response, next: NextFunction) {
-    try {
-      const serverUpdate: UpdateServerDto = req.body;
-      const { id } = req.params;
-      await this.serverService.updateServer(Number(id), serverUpdate);
+    const serverUpdate: UpdateServerDto = req.body;
+    const id = Number(req.params.id);
 
-      res.status(200).json({ message: "Server updated successfully" });
-    } catch (err) {
-      next(err);
-    }
+    await this.serverService.updateServer(Number(id), serverUpdate);
+
+    const response = BaseHttpResponse.successWithNoContent();
+
+    res.json(response);
   }
 
   async deleteServer(req: Request, res: Response, next: NextFunction) {
-    try {
-      const { id } = req.params;
-      await this.serverService.deleteServer(Number(id));
-      res.status(200).json({ message: "Server deleted successfully" });
-    } catch (err) {
-      next(err);
-    }
+    const id = Number(req.params.id);
+
+    await this.serverService.deleteServer(id);
+
+    const response = BaseHttpResponse.successWithNoContent();
+
+    res.json(response);
   }
 
   async createServer(req: Request, res: Response, next: NextFunction) {
-    try {
-      const server: CreateServerDto = req.body;
-      await this.serverService.createServer(server);
-      res.status(201).json("Server created");
-    } catch (err) {
-      next(err);
-    }
+    const server: CreateServerDto = req.body;
+    await this.serverService.createServer(server);
+
+    const response = BaseHttpResponse.created();
+
+    res.json(response);
   }
 }
