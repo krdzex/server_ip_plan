@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from "express";
+import { Request, Response } from "express";
 import { ServerService } from "../../logic/services/server.service";
 import { UpdateServerDto } from "../../data/dtos/servers/update-server.dto";
 import { CreateServerDto } from "../../data/dtos/servers/create-server.dto";
@@ -16,7 +16,7 @@ export class ServerController {
     res.json(response);
   }
 
-  async updateServer(req: Request, res: Response, next: NextFunction) {
+  async updateServer(req: Request, res: Response) {
     const serverUpdate: UpdateServerDto = req.body;
     const id = Number(req.params.id);
 
@@ -27,7 +27,7 @@ export class ServerController {
     res.json(response);
   }
 
-  async deleteServer(req: Request, res: Response, next: NextFunction) {
+  async deleteServer(req: Request, res: Response) {
     const id = Number(req.params.id);
 
     await this.serverService.deleteServer(id);
@@ -37,7 +37,7 @@ export class ServerController {
     res.json(response);
   }
 
-  async createServer(req: Request, res: Response, next: NextFunction) {
+  async createServer(req: Request, res: Response) {
     const server: CreateServerDto = req.body;
     await this.serverService.createServer(server);
 
