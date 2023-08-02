@@ -1,0 +1,30 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL_PRISMA")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum ServerStatus {
+  ONLINE
+  OFFLINE
+}
+
+model Server {
+  id          Int          @id @default(autoincrement())
+  name        String
+  description String
+  status      ServerStatus @default(OFFLINE)
+  ipPlanId    Int
+  ipPlan      IPPlan      @relation(fields: [ipPlanId], references: [id])
+}
+
+model IPPlan {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String
+  price       Int
+  servers     Server[]
+}
