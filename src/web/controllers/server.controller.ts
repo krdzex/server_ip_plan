@@ -22,7 +22,7 @@ export class ServerController {
 
     await this.serverService.updateServer(Number(id), serverUpdate);
 
-    const response = BaseHttpResponse.successWithNoContent();
+    const response = BaseHttpResponse.success(null, 204);
 
     res.json(response);
   }
@@ -32,7 +32,7 @@ export class ServerController {
 
     await this.serverService.deleteServer(id);
 
-    const response = BaseHttpResponse.successWithNoContent();
+    const response = BaseHttpResponse.success(null, 204);
 
     res.json(response);
   }
@@ -41,7 +41,7 @@ export class ServerController {
     const server: CreateServerDto = req.body;
     await this.serverService.createServer(server);
 
-    const response = BaseHttpResponse.created();
+    const response = BaseHttpResponse.success(null, 201);
 
     res.json(response);
   }

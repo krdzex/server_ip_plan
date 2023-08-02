@@ -9,15 +9,7 @@ export class BaseHttpResponse {
     return new BaseHttpResponse(data, null, statusCode);
   }
 
-  static successWithNoContent(statusCode = 204) {
-    return new BaseHttpResponse(null, null, statusCode);
-  }
-
   static failed(msg: string, statusCode = 400) {
     return new BaseHttpResponse(null, msg, statusCode);
-  }
-
-  static created(statusCode = 201) {
-    return new BaseHttpResponse(null, null, statusCode);
   }
 }

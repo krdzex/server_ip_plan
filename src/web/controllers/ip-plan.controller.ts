@@ -21,7 +21,7 @@ export class IpPlanController {
 
     await this.ipPlanService.createIpPlan(ipPlan);
 
-    const response = BaseHttpResponse.created();
+    const response = BaseHttpResponse.success(null, 201);
 
     res.json(response);
   }
@@ -32,7 +32,7 @@ export class IpPlanController {
 
     await this.ipPlanService.updateIpPlan(id, ipPlanUpdate);
 
-    const response = BaseHttpResponse.successWithNoContent();
+    const response = BaseHttpResponse.success(null, 204);
 
     res.json(response);
   }
@@ -41,7 +41,7 @@ export class IpPlanController {
     const id = Number(req.params.id);
     await this.ipPlanService.deleteIpPlan(id);
 
-    const response = BaseHttpResponse.successWithNoContent();
+    const response = BaseHttpResponse.success(null, 204);
 
     res.json(response);
   }
