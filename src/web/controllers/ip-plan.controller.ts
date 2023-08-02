@@ -18,7 +18,7 @@ export class IpPlanController {
     try {
       const server: CreateIpPlanDto = req.body;
       await this.ipPlanService.createIpPlan(server);
-      res.status(201).json("Ip plan created");
+      res.status(201).json({ message: "Ip plan created" });
     } catch (err) {
       next(err);
     }
@@ -29,7 +29,7 @@ export class IpPlanController {
       const serverUpdate: UpdateIpPlanDto = req.body;
       const { id } = req.params;
       await this.ipPlanService.updateIpPlan(Number(id), serverUpdate);
-      res.status(200).json({ message: "Server updated successfully" });
+      res.status(200).json({ message: "Ip plan updated successfully" });
     } catch (err) {
       next(err);
     }
