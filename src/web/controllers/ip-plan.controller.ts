@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from "express";
+import { Request, Response } from "express";
 import { IpPlanService } from "../../logic/services/ip-plan.service";
 import { CreateIpPlanDto } from "../../data/dtos/ip-plans/create-ip-plan.dto";
 import { UpdateIpPlanDto } from "../../data/dtos/ip-plans/update-ip-plan.dto";
@@ -16,7 +16,7 @@ export class IpPlanController {
     res.json(response);
   }
 
-  async createIpPlan(req: Request, res: Response, next: NextFunction) {
+  async createIpPlan(req: Request, res: Response) {
     const ipPlan: CreateIpPlanDto = req.body;
 
     await this.ipPlanService.createIpPlan(ipPlan);
@@ -26,7 +26,7 @@ export class IpPlanController {
     res.json(response);
   }
 
-  async updateIpPlan(req: Request, res: Response, next: NextFunction) {
+  async updateIpPlan(req: Request, res: Response) {
     const ipPlanUpdate: UpdateIpPlanDto = req.body;
     const id = Number(req.params.id);
 
@@ -37,7 +37,7 @@ export class IpPlanController {
     res.json(response);
   }
 
-  async deleteIpPlan(req: Request, res: Response, next: NextFunction) {
+  async deleteIpPlan(req: Request, res: Response) {
     const id = Number(req.params.id);
     await this.ipPlanService.deleteIpPlan(id);
 
