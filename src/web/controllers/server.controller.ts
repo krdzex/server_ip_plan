@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { ServerService } from "../../logic/services/server.service";
 import { UpdateServerDto } from "../../data/dtos/servers/update-server.dto";
 import { CreateServerDto } from "../../data/dtos/servers/create-server.dto";
+import { BaseHttpResponse } from "../base-http-response";
 
 export class ServerController {
   constructor(private readonly serverService: ServerService) {}
@@ -11,7 +12,8 @@ export class ServerController {
 
     const server = await this.serverService.getServerById(id);
 
-    return res.status(200).send(server);
+    const response = BaseHttpResponse.success(server);
+    res.json(response);
   }
 
   async updateServer(req: Request, res: Response, next: NextFunction) {
@@ -19,6 +21,7 @@ export class ServerController {
       const serverUpdate: UpdateServerDto = req.body;
       const { id } = req.params;
       await this.serverService.updateServer(Number(id), serverUpdate);
+
       res.status(200).json({ message: "Server updated successfully" });
     } catch (err) {
       next(err);
