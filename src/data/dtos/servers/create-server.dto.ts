@@ -1,4 +1,5 @@
 import { ServerStatus } from "@prisma/client";
+import { ValidationException } from "../../../logic/services/exceptions/validation.exception";
 
 export class CreateServerDto {
   constructor(
@@ -10,19 +11,19 @@ export class CreateServerDto {
 
   static from(body: Partial<CreateServerDto>) {
     if (!body.name) {
-      throw new Error("");
+      throw new ValidationException("Name is required field");
     }
 
     if (!body.description) {
-      throw new Error("");
+      throw new ValidationException("Description is required field");
     }
 
     if (!body.status) {
-      throw new Error("");
+      throw new ValidationException("Status is required field");
     }
 
     if (!body.ipPlanId) {
-      throw new Error("");
+      throw new ValidationException("Plan id is required field");
     }
 
     return new CreateServerDto(
