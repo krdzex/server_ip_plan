@@ -1,3 +1,4 @@
+import { CreateIpPlanDto } from "../../data/dtos/ip-plans/create-ip-plan.dto";
 import { IpPlanDto } from "../../data/dtos/ip-plans/ip-plan.dto";
 import { IIpPlanRepository } from "../../data/interfaces/ip-plan-repository.interface";
 
@@ -12,5 +13,9 @@ export class IpPlanService {
     }
 
     return foundIpPlan;
+  }
+
+  async createIpPlan(ipPlan: CreateIpPlanDto): Promise<void> {
+    return await this._ipPlanRepo.createIpPlan(ipPlan);
   }
 }

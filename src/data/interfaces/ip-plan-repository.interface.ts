@@ -1,5 +1,7 @@
+import { CreateIpPlanDto } from "../dtos/ip-plans/create-ip-plan.dto";
 import { IpPlanDto } from "../dtos/ip-plans/ip-plan.dto";
 
 export interface IIpPlanRepository {
   getIpPlanById(id: number): Promise<IpPlanDto | null>;
+  createIpPlan(ipPlan: CreateIpPlanDto): Promise<void>;
 }
