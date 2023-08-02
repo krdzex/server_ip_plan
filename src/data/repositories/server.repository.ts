@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { IServerRepository } from "../interfaces/i-server-repository";
-import { ServerWithPlanDto } from "../../logic/services/dtos/server-with-plan.dto";
+import { ServerWithPlanDto } from "../dtos/server-with-plan.dto";
 
 const prisma = new PrismaClient();
 
