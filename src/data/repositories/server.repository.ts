@@ -2,6 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import { IServerRepository } from "../interfaces/i-server-repository";
 import { ServerWithPlanDto } from "../dtos/servers/server-with-plan.dto";
 import { ServerUpdateDto } from "../dtos/servers/update-server.dto";
+import { CreateServerDto } from "../dtos/servers/create-server.dto";
 
 const prisma = new PrismaClient();
 
@@ -14,7 +15,7 @@ export class ServerRepository implements IServerRepository {
         name: true,
         description: true,
         status: true,
-        ipPlan:  {
+        ipPlan: {
           select: {
             id: true,
             name: true,
@@ -36,6 +37,12 @@ export class ServerRepository implements IServerRepository {
   async deleteServer(id: number): Promise<void> {
     await prisma.server.delete({
       where: { id },
+    });
+  }
+
+  async createServer(server: CreateServerDto): Promise<void> {
+    await prisma.server.create({
+      data: server
     });
   }
 }
