@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { ServerService } from "../../logic/services/server.service";
 import { ServerUpdateDto } from "../../data/dtos/servers/update-server.dto";
+import { CreateServerDto } from "../../data/dtos/servers/create-server.dto";
 
 export class ServerController {
   constructor(private readonly serverService: ServerService) {}
@@ -29,6 +30,16 @@ export class ServerController {
       const { id } = req.params;
       await this.serverService.deleteServer(Number(id));
       res.status(200).json({ message: "Server deleted successfully" });
+    } catch (err) {
+      next(err);
+    }
+  }
+
+  async createServer(req: Request, res: Response, next: NextFunction) {
+    try {
+      const server: CreateServerDto = req.body;
+      await this.serverService.createServer(server);
+      res.status(201).json("Server created");
     } catch (err) {
       next(err);
     }
