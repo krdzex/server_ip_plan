@@ -28,7 +28,7 @@ export class IpPlanController {
 
       const response = BaseHttpResponse.success({}, 201);
 
-      res.json(response.data);
+      res.status(response.statusCode).json(response.data);
     } catch (err) {
       next(err);
     }
@@ -43,7 +43,7 @@ export class IpPlanController {
 
       const response = BaseHttpResponse.success({}, 204);
 
-      res.json(response.data);
+      res.status(response.statusCode).json(response.data);
     } catch (err) {
       next(err);
     }
@@ -56,7 +56,7 @@ export class IpPlanController {
 
       const response = BaseHttpResponse.success({}, 204);
 
-      res.json(response.data);
+      res.status(response.statusCode).json(response.data);
     } catch (err) {
       next(err);
     }
