@@ -14,14 +14,24 @@ export class CreateServerDto {
 
     if (!body.name) {
       errors.name = "Name is required field";
+    } else if (body.name.length > 50) {
+      errors.name = "Name cant be loner then 50 characters";
     }
 
     if (!body.description) {
       errors.description = "Description is required field";
+    } else if (body.description.length > 1000) {
+      errors.name = "Description cant be loner then 1000 characters";
     }
 
     if (!body.status) {
       errors.status = "Status is required field";
+    } else if (
+      body.status != ServerStatus.ONLINE ||
+      body.status ||
+      ServerStatus.OFFLINE
+    ) {
+      errors.status = "Status can only be offline or online";
     }
 
     if (!body.ipPlanId) {
