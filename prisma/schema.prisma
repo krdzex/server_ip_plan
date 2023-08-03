@@ -19,6 +19,8 @@ model Server {
   status      ServerStatus @default(OFFLINE)
   ipPlanId    Int
   ipPlan      IPPlan       @relation(fields: [ipPlanId], references: [id])
+
+  @@index([name])
 }
 
 model IPPlan {
@@ -27,4 +29,6 @@ model IPPlan {
   description String   @db.VarChar(1000)
   price       Int
   servers     Server[]
+
+  @@index([name])
 }

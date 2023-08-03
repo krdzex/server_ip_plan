@@ -52,4 +52,12 @@ export class IpPlanRepository implements IIpPlanRepository {
   ): Promise<PaginatedResult<IpPlanDto>> {
     return paginate(prisma.iPPlan, options);
   }
+
+  async getIpPlanByName(name: string): Promise<IpPlanDto | null> {
+    const ipPlan = await prisma.iPPlan.findUnique({
+      where: { name },
+    });
+
+    return ipPlan;
+  }
 }

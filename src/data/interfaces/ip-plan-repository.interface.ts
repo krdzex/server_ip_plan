@@ -12,4 +12,5 @@ export interface IIpPlanRepository {
   getIpPlansPagination(
     options: PaginateOptions
   ): Promise<PaginatedResult<IpPlanDto>>;
+  getIpPlanByName(name: string): Promise<IpPlanDto | null>;
 }

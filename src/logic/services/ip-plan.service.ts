@@ -20,6 +20,14 @@ export class IpPlanService {
   }
 
   async createIpPlan(ipPlan: CreateIpPlanDto): Promise<void> {
+    const ipPlanWithSameName = await this._ipPlanRepo.getIpPlanByName(
+      ipPlan.name
+    );
+
+    if (ipPlanWithSameName) {
+
+    }
+
     return await this._ipPlanRepo.createIpPlan(ipPlan);
   }
 
