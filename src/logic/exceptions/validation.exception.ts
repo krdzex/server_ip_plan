@@ -1,5 +1,8 @@
 export class ValidationException extends Error {
-  constructor(msg: string) {
-    super(msg);
+  errors: { [key: string]: string };
+
+  constructor(errors: { [key: string]: string }) {
+    super("Validation failed");
+    this.errors = errors;
   }
 }

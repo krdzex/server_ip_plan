@@ -8,18 +8,28 @@ export class CreateIpPlanDto {
   ) {}
 
   static from(body: Partial<CreateIpPlanDto>) {
+    const errors: { [key: string]: string } = {};
+
     if (!body.name) {
-      throw new ValidationException("Name is required");
+      errors.name = "Name is required field";
     }
 
     if (!body.description) {
-        throw new ValidationException("Description is required");
+      errors.description = "Description is required field";
     }
 
     if (!body.price) {
-        throw new ValidationException("Price is required");
+      errors.description = "Description is required field";
     }
 
-    return new CreateIpPlanDto(body.name, body.description, body.price);
+    if (Object.keys(errors).length > 0) {
+      throw new ValidationException(errors);
+    }
+
+    return new CreateIpPlanDto(
+      body.name || "",
+      body.description || "",
+      body.price || 0
+    );
   }
 }

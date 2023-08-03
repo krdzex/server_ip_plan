@@ -10,27 +10,33 @@ export class CreateServerDto {
   ) {}
 
   static from(body: Partial<CreateServerDto>) {
+    const errors: { [key: string]: string } = {};
+
     if (!body.name) {
-      throw new ValidationException("Name is required field");
+      errors.name = "Name is required field";
     }
 
     if (!body.description) {
-      throw new ValidationException("Description is required field");
+      errors.description = "Description is required field";
     }
 
     if (!body.status) {
-      throw new ValidationException("Status is required field");
+      errors.status = "Status is required field";
     }
 
     if (!body.ipPlanId) {
-      throw new ValidationException("Plan id is required field");
+      errors.planId = "Plan id is required field";
+    }
+
+    if (Object.keys(errors).length > 0) {
+      throw new ValidationException(errors);
     }
 
     return new CreateServerDto(
-      body.name,
-      body.description,
-      body.status,
-      body.ipPlanId
+      body.name || "",
+      body.description || "",
+      body.status || ServerStatus.OFFLINE,
+      body.ipPlanId || 0
     );
   }
 }
