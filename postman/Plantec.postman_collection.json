@@ -1,10 +1,8 @@
 {
 	"info": {
-		"_postman_id": "4ee01d08-a48f-4b36-b423-3715115a33a7",
+		"_postman_id": "e34e14de-c3f9-4bf0-bd69-0da149efb231",
 		"name": "Plantec",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "15525822",
-		"_collection_link": "https://universal-capsule-680042.postman.co/workspace/Test~fdfa2a53-a887-43e6-a751-be0815a936e6/collection/15525822-4ee01d08-a48f-4b36-b423-3715115a33a7?action=share&creator=15525822&source=collection_link"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -14,7 +12,18 @@
 					"name": "GetServers",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/servers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"servers"
+							]
+						}
 					},
 					"response": []
 				},
@@ -22,7 +31,19 @@
 					"name": "GetSingleServer",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/servers/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"servers",
+								"3"
+							]
+						}
 					},
 					"response": []
 				},
@@ -140,7 +161,19 @@
 					"name": "GetSingleIpPlan",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/ip-plans/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ip-plans",
+								"3"
+							]
+						}
 					},
 					"response": []
 				},
@@ -177,7 +210,10 @@
 					"name": "GetIpPlans",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
