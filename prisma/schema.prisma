@@ -14,17 +14,17 @@ enum ServerStatus {
 
 model Server {
   id          Int          @id @default(autoincrement())
-  name        String
-  description String
+  name        String       @unique @db.VarChar(50)
+  description String       @db.VarChar(1000)
   status      ServerStatus @default(OFFLINE)
   ipPlanId    Int
-  ipPlan      IPPlan      @relation(fields: [ipPlanId], references: [id])
+  ipPlan      IPPlan       @relation(fields: [ipPlanId], references: [id])
 }
 
 model IPPlan {
   id          Int      @id @default(autoincrement())
-  name        String
-  description String
+  name        String   @unique @db.VarChar(50)
+  description String   @db.VarChar(1000)
   price       Int
   servers     Server[]
 }
