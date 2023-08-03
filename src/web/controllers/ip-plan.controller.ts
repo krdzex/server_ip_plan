@@ -61,4 +61,21 @@ export class IpPlanController {
       next(err);
     }
   }
+
+  async getIpPlansPagination(req: Request, res: Response, next: NextFunction) {
+    try {
+      const page = Number(req.query.page);
+      const take = Number(req.query.take);
+
+      const ipPlansPagination = await this.ipPlanService.getIpPlansPagination({
+        page,
+        take,
+      });
+
+      const response = BaseHttpResponse.success(ipPlansPagination);
+      res.json(response.data);
+    } catch (err) {
+      next(err);
+    }
+  }
 }

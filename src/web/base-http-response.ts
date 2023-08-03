@@ -17,7 +17,7 @@ export class BaseHttpResponse {
   static validationFailed(
     msg: string,
     erros: { [key: string]: string },
-    statusCode = 400
+    statusCode = 422
   ) {
     return new BaseHttpResponse(null, msg, erros, statusCode);
   }

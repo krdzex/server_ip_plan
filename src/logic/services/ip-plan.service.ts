@@ -1,6 +1,8 @@
 import { CreateIpPlanDto } from "../../data/dtos/ip-plans/create-ip-plan.dto";
 import { IpPlanDto } from "../../data/dtos/ip-plans/ip-plan.dto";
 import { UpdateIpPlanDto } from "../../data/dtos/ip-plans/update-ip-plan.dto";
+import { PaginateOptions } from "../../data/dtos/pagination/pagination-options";
+import { PaginatedResult } from "../../data/dtos/pagination/pagination-result";
 import { IIpPlanRepository } from "../../data/interfaces/ip-plan-repository.interface";
 import { IpPlanNotFoundException } from "../exceptions/ip-plan-not-found.exception";
 
@@ -39,5 +41,15 @@ export class IpPlanService {
     }
 
     return await this._ipPlanRepo.deleteIpPlanWithServers(id);
+  }
+
+  async getIpPlansPagination(
+    options: PaginateOptions
+  ): Promise<PaginatedResult<IpPlanDto>> {
+    const getIpPlansPagination = await this._ipPlanRepo.getIpPlansPagination(
+      options
+    );
+
+    return getIpPlansPagination;
   }
 }

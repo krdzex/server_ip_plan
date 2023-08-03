@@ -7,6 +7,10 @@ import { UpdateIpPlanDto } from "../../data/dtos/ip-plans/update-ip-plan.dto";
 const ipPlanRouter = express.Router();
 
 ipPlanRouter.get("/:id", ipPlanController.getIpPlanById.bind(ipPlanController));
+ipPlanRouter.get(
+  "/",
+  ipPlanController.getIpPlansPagination.bind(ipPlanController)
+);
 
 ipPlanRouter.post(
   "/",

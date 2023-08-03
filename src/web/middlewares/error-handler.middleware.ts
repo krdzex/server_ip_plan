@@ -11,11 +11,7 @@ const ErrorHandler = (
   next: NextFunction
 ) => {
   if (err instanceof ValidationException) {
-    const response = BaseHttpResponse.validationFailed(
-      err.message,
-      err.errors,
-      422
-    );
+    const response = BaseHttpResponse.validationFailed(err.message, err.errors);
     return res
       .status(response.statusCode)
       .json({ msg: response.msg, errors: response.errors });
@@ -32,7 +28,7 @@ const ErrorHandler = (
   }
 
   if (err instanceof Error) {
-    const response = BaseHttpResponse.failed("Internal server error", 500);
+    const response = BaseHttpResponse.failed(err.message, 500);
     return res.status(response.statusCode).json(response);
   }
 
