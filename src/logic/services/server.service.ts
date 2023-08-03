@@ -7,6 +7,7 @@ import { IIpPlanRepository } from "../../data/interfaces/ip-plan-repository.inte
 import { IpPlanNotFoundException } from "../exceptions/custom-exceptions/ip-plan-not-found.exception";
 import { PaginateOptions } from "../../data/dtos/pagination/pagination-options";
 import { PaginatedResult } from "../../data/dtos/pagination/pagination-result";
+import { ServerSameNameException } from "../exceptions/custom-exceptions/server-same-name.exception";
 
 export class ServerService {
   constructor(
@@ -31,6 +32,16 @@ export class ServerService {
       throw new ServerNotFoundException(id);
     }
 
+    if (serverUpdate.name && foundServer.name != serverUpdate.name) {
+      const serverWithSameName = await this._serverRepo.getServerByName(
+        serverUpdate.name
+      );
+
+      if (serverWithSameName) {
+        throw new ServerSameNameException(serverUpdate.name);
+      }
+    }
+
     return await this._serverRepo.updateServer(id, serverUpdate);
   }
 
@@ -45,6 +56,14 @@ export class ServerService {
   }
 
   async createServer(server: CreateServerDto): Promise<void> {
+    const serverWithSameName = await this._serverRepo.getServerByName(
+      server.name
+    );
+
+    if (serverWithSameName) {
+      throw new ServerSameNameException(server.name);
+    }
+
     var foundIpPlan = await this._ipPlanRepo.getIpPlanById(server.ipPlanId);
 
     if (!foundIpPlan) {

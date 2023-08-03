@@ -6,6 +6,7 @@ import { CreateServerDto } from "../dtos/servers/create-server.dto";
 import { PaginateOptions } from "../dtos/pagination/pagination-options";
 import { PaginatedResult } from "../dtos/pagination/pagination-result";
 import { paginate } from "../dtos/pagination/paginator";
+import { ServerDto } from "../dtos/servers/server.dto";
 
 const prisma = new PrismaClient();
 
@@ -68,5 +69,19 @@ export class ServerRepository implements IServerRepository {
     };
 
     return paginate(prisma.server, options, select);
+  }
+
+  async getServerByName(name: string): Promise<ServerDto | null> {
+    const server = await prisma.server.findUnique({
+      where: { name },
+      select: {
+        id: true,
+        name: true,
+        description: true,
+        status: true,
+      },
+    });
+
+    return server;
   }
 }
