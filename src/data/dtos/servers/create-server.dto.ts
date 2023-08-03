@@ -1,5 +1,5 @@
 import { ServerStatus } from "@prisma/client";
-import { ValidationException } from "../../../logic/services/exceptions/validation.exception";
+import { ValidationException } from "../../../logic/exceptions/validation.exception";
 
 export class CreateServerDto {
   constructor(

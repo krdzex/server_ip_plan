@@ -1,3 +1,5 @@
+import { ValidationException } from "../../../logic/exceptions/validation.exception";
+
 export class CreateIpPlanDto {
   constructor(
     public readonly name: string,
@@ -7,15 +9,15 @@ export class CreateIpPlanDto {
 
   static from(body: Partial<CreateIpPlanDto>) {
     if (!body.name) {
-      throw new Error("");
+      throw new ValidationException("Name is required");
     }
 
     if (!body.description) {
-      throw new Error("");
+        throw new ValidationException("Description is required");
     }
 
     if (!body.price) {
-      throw new Error("");
+        throw new ValidationException("Price is required");
     }
 
     return new CreateIpPlanDto(body.name, body.description, body.price);

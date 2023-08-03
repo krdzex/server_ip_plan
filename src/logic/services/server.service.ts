@@ -2,9 +2,9 @@ import { IServerRepository } from "../../data/interfaces/server-repository.inter
 import { ServerWithPlanDto } from "../../data/dtos/servers/server-with-plan.dto";
 import { UpdateServerDto } from "../../data/dtos/servers/update-server.dto";
 import { CreateServerDto } from "../../data/dtos/servers/create-server.dto";
-import { ServerNotFoundException } from "./exceptions/server-not-found.exception";
+import { ServerNotFoundException } from "../exceptions/server-not-found.exception";
 import { IIpPlanRepository } from "../../data/interfaces/ip-plan-repository.interface";
-import { IpPlanNotFoundException } from "./exceptions/ip-plan-not-found.exception";
+import { IpPlanNotFoundException } from "../exceptions/ip-plan-not-found.exception";
 
 export class ServerService {
   constructor(

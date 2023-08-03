@@ -2,7 +2,7 @@ import { CreateIpPlanDto } from "../../data/dtos/ip-plans/create-ip-plan.dto";
 import { IpPlanDto } from "../../data/dtos/ip-plans/ip-plan.dto";
 import { UpdateIpPlanDto } from "../../data/dtos/ip-plans/update-ip-plan.dto";
 import { IIpPlanRepository } from "../../data/interfaces/ip-plan-repository.interface";
-import { IpPlanNotFoundException } from "./exceptions/ip-plan-not-found.exception";
+import { IpPlanNotFoundException } from "../exceptions/ip-plan-not-found.exception";
 
 export class IpPlanService {
   constructor(private readonly _ipPlanRepo: IIpPlanRepository) {}
