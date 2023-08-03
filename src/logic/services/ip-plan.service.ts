@@ -5,6 +5,7 @@ import { PaginateOptions } from "../../data/dtos/pagination/pagination-options";
 import { PaginatedResult } from "../../data/dtos/pagination/pagination-result";
 import { IIpPlanRepository } from "../../data/interfaces/ip-plan-repository.interface";
 import { IpPlanNotFoundException } from "../exceptions/custom-exceptions/ip-plan-not-found.exception";
+import { IpPlanSameNameException } from "../exceptions/custom-exceptions/ip-plan-same-name.exception";
 
 export class IpPlanService {
   constructor(private readonly _ipPlanRepo: IIpPlanRepository) {}
@@ -25,7 +26,7 @@ export class IpPlanService {
     );
 
     if (ipPlanWithSameName) {
-
+      throw new IpPlanSameNameException(ipPlan.name);
     }
 
     return await this._ipPlanRepo.createIpPlan(ipPlan);
@@ -36,6 +37,16 @@ export class IpPlanService {
 
     if (!foundIpPlan) {
       throw new IpPlanNotFoundException(id);
+    }
+
+    if (ipPlanUpdate.name && foundIpPlan.name != ipPlanUpdate.name) {
+      const ipPlanWithSameName = await this._ipPlanRepo.getIpPlanByName(
+        ipPlanUpdate.name
+      );
+
+      if (ipPlanWithSameName) {
+        throw new IpPlanSameNameException(ipPlanUpdate.name);
+      }
     }
 
     return await this._ipPlanRepo.updateIpPlan(id, ipPlanUpdate);
