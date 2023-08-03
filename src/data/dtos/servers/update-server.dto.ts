@@ -1,5 +1,5 @@
 import { ServerStatus } from "@prisma/client";
-import { ValidationException } from "../../../logic/exceptions/custom-exceptions/validation.exception";
+import { ValidationException } from "@exceptions/custom-exceptions/validation.exception";
 
 function isValidStatus(status: string): boolean {
   return Object.values(ServerStatus).includes(status as ServerStatus);

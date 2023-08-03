@@ -1,8 +1,8 @@
 import express from "express";
 import { ipPlanController } from "../dependecies";
-import { ValidateRequestMiddleware } from "../middlewares/validate-request.middleware";
-import { CreateIpPlanDto } from "../../data/dtos/ip-plans/create-ip-plan.dto";
-import { UpdateIpPlanDto } from "../../data/dtos/ip-plans/update-ip-plan.dto";
+import { ValidateRequestMiddleware } from "@middlewares/validate-request.middleware";
+import { CreateIpPlanDto } from "@dtos/ip-plans/create-ip-plan.dto";
+import { UpdateIpPlanDto } from "@dtos/ip-plans/update-ip-plan.dto";
 
 const ipPlanRouter = express.Router();
 

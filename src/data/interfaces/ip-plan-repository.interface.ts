@@ -1,8 +1,8 @@
-import { CreateIpPlanDto } from "../dtos/ip-plans/create-ip-plan.dto";
-import { IpPlanDto } from "../dtos/ip-plans/ip-plan.dto";
-import { UpdateIpPlanDto } from "../dtos/ip-plans/update-ip-plan.dto";
-import { PaginateOptions } from "../dtos/pagination/pagination-options";
-import { PaginatedResult } from "../dtos/pagination/pagination-result";
+import { CreateIpPlanDto } from "@dtos/ip-plans/create-ip-plan.dto";
+import { IpPlanDto } from "@dtos/ip-plans/ip-plan.dto";
+import { UpdateIpPlanDto } from "@dtos/ip-plans/update-ip-plan.dto";
+import { PaginateOptions } from "@dtos/pagination/pagination-options";
+import { PaginatedResult } from "@dtos/pagination/pagination-result";
 
 export interface IIpPlanRepository {
   getIpPlanById(id: number): Promise<IpPlanDto | null>;

@@ -1,11 +1,11 @@
 import { PrismaClient } from "@prisma/client";
-import { IpPlanDto } from "../dtos/ip-plans/ip-plan.dto";
-import { IIpPlanRepository } from "../interfaces/ip-plan-repository.interface";
-import { CreateIpPlanDto } from "../dtos/ip-plans/create-ip-plan.dto";
-import { UpdateIpPlanDto } from "../dtos/ip-plans/update-ip-plan.dto";
-import { PaginatedResult } from "../dtos/pagination/pagination-result";
-import { paginate } from "../dtos/pagination/paginator";
-import { PaginateOptions } from "../dtos/pagination/pagination-options";
+import { IpPlanDto } from "@dtos/ip-plans/ip-plan.dto";
+import { IIpPlanRepository } from "@interfaces/ip-plan-repository.interface";
+import { CreateIpPlanDto } from "@dtos/ip-plans/create-ip-plan.dto";
+import { UpdateIpPlanDto } from "@dtos/ip-plans/update-ip-plan.dto";
+import { PaginatedResult } from "@dtos/pagination/pagination-result";
+import { paginate } from "@dtos/pagination/paginator";
+import { PaginateOptions } from "@dtos/pagination/pagination-options";
 
 const prisma = new PrismaClient();
 

@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from "express";
-import { ValidationException } from "../../logic/exceptions/custom-exceptions/validation.exception";
+import { ValidationException } from "@exceptions/custom-exceptions/validation.exception";
 import { BaseHttpResponse } from "../base-http-response";
-import { NotFoundException } from "../../logic/exceptions/base-exceptions/not-found.exception";
-import { BadRequest } from "../../logic/exceptions/base-exceptions/bad-request.exception";
+import { NotFoundException } from "@exceptions/base-exceptions/not-found.exception";
+import { BadRequest } from "@exceptions/base-exceptions/bad-request.exception";
 
 const ErrorHandler = (
   err: Error,

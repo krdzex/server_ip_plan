@@ -1,9 +1,9 @@
-import { IpPlanRepository } from "../data/repositories/ip-plan.repository";
-import { ServerRepository } from "../data/repositories/server.repository";
-import { IpPlanService } from "../logic/services/ip-plan.service";
-import { ServerService } from "../logic/services/server.service";
-import { IpPlanController } from "./controllers/ip-plan.controller";
-import { ServerController } from "./controllers/server.controller";
+import { IpPlanRepository } from "@repositories/ip-plan.repository";
+import { ServerRepository } from "@repositories/server.repository";
+import { IpPlanService } from "@services/ip-plan.service";
+import { ServerService } from "@services/server.service";
+import { IpPlanController } from "@controllers/ip-plan.controller";
+import { ServerController } from "@controllers/server.controller";
 
 const serverService = new ServerService(
   new ServerRepository(),

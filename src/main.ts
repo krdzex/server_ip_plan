@@ -1,8 +1,8 @@
 import bodyParser from "body-parser";
 import express from "express";
-import { serverRouter } from "./web/routes/server.routes";
-import { ipPlanRouter } from "./web/routes/ip-plan.routes";
-import ErrorHandler from "./web/middlewares/error-handler.middleware";
+import { serverRouter } from "@routes/server.routes";
+import { ipPlanRouter } from "@routes/ip-plan.routes";
+import ErrorHandler from "@middlewares/error-handler.middleware";
 
 function boostrap() {
   const app = express();

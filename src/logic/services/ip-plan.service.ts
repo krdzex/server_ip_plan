@@ -1,11 +1,11 @@
-import { CreateIpPlanDto } from "../../data/dtos/ip-plans/create-ip-plan.dto";
-import { IpPlanDto } from "../../data/dtos/ip-plans/ip-plan.dto";
-import { UpdateIpPlanDto } from "../../data/dtos/ip-plans/update-ip-plan.dto";
-import { PaginateOptions } from "../../data/dtos/pagination/pagination-options";
-import { PaginatedResult } from "../../data/dtos/pagination/pagination-result";
-import { IIpPlanRepository } from "../../data/interfaces/ip-plan-repository.interface";
-import { IpPlanNotFoundException } from "../exceptions/custom-exceptions/ip-plan-not-found.exception";
-import { IpPlanSameNameException } from "../exceptions/custom-exceptions/ip-plan-same-name.exception";
+import { CreateIpPlanDto } from "@dtos/ip-plans/create-ip-plan.dto";
+import { IpPlanDto } from "@dtos/ip-plans/ip-plan.dto";
+import { UpdateIpPlanDto } from "@dtos/ip-plans/update-ip-plan.dto";
+import { PaginateOptions } from "@dtos/pagination/pagination-options";
+import { PaginatedResult } from "@dtos/pagination/pagination-result";
+import { IIpPlanRepository } from "@interfaces/ip-plan-repository.interface";
+import { IpPlanNotFoundException } from "@exceptions/custom-exceptions/ip-plan-not-found.exception";
+import { IpPlanSameNameException } from "@exceptions/custom-exceptions/ip-plan-same-name.exception";
 
 export class IpPlanService {
   constructor(private readonly _ipPlanRepo: IIpPlanRepository) {}

@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "module": "commonjs",
     "esModuleInterop": true,
     "target": "es6",
@@ -11,7 +12,17 @@
     "noEmit": false,
     "resolveJsonModule": true,
     "noUnusedLocals": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "paths": {
+      "@exceptions/*": ["src/logic/exceptions/*"],
+      "@dtos/*": ["src/data/dtos/*"],
+      "@middlewares/*": ["src/web/middlewares/*"],
+      "@services/*": ["src/logic/services/*"],
+      "@routes/*": ["src/web/routes/*"],
+      "@repositories/*": ["src/data/repositories/*"],
+      "@controllers/*": ["src/web/controllers/*"],
+      "@interfaces/*": ["src/data/interfaces/*"]
+    }
   },
   "include": ["src/**/**.ts"],
   "exclude": ["node_modules"]

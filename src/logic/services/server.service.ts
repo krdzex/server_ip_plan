@@ -1,13 +1,13 @@
-import { IServerRepository } from "../../data/interfaces/server-repository.interface";
-import { ServerWithPlanDto } from "../../data/dtos/servers/server-with-plan.dto";
-import { UpdateServerDto } from "../../data/dtos/servers/update-server.dto";
-import { CreateServerDto } from "../../data/dtos/servers/create-server.dto";
-import { ServerNotFoundException } from "../exceptions/custom-exceptions/server-not-found.exception";
-import { IIpPlanRepository } from "../../data/interfaces/ip-plan-repository.interface";
-import { IpPlanNotFoundException } from "../exceptions/custom-exceptions/ip-plan-not-found.exception";
-import { PaginateOptions } from "../../data/dtos/pagination/pagination-options";
-import { PaginatedResult } from "../../data/dtos/pagination/pagination-result";
-import { ServerSameNameException } from "../exceptions/custom-exceptions/server-same-name.exception";
+import { IServerRepository } from "@interfaces/server-repository.interface";
+import { ServerWithPlanDto } from "@dtos/servers/server-with-plan.dto";
+import { UpdateServerDto } from "@dtos/servers/update-server.dto";
+import { CreateServerDto } from "@dtos/servers/create-server.dto";
+import { ServerNotFoundException } from "@exceptions/custom-exceptions/server-not-found.exception";
+import { IIpPlanRepository } from "@interfaces/ip-plan-repository.interface";
+import { IpPlanNotFoundException } from "@exceptions/custom-exceptions/ip-plan-not-found.exception";
+import { PaginateOptions } from "@dtos/pagination/pagination-options";
+import { PaginatedResult } from "@dtos/pagination/pagination-result";
+import { ServerSameNameException } from "@exceptions/custom-exceptions/server-same-name.exception";
 
 export class ServerService {
   constructor(

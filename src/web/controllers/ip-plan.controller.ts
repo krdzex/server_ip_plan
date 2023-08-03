@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
-import { IpPlanService } from "../../logic/services/ip-plan.service";
-import { CreateIpPlanDto } from "../../data/dtos/ip-plans/create-ip-plan.dto";
-import { UpdateIpPlanDto } from "../../data/dtos/ip-plans/update-ip-plan.dto";
+import { IpPlanService } from "@services/ip-plan.service";
+import { CreateIpPlanDto } from "@dtos/ip-plans/create-ip-plan.dto";
+import { UpdateIpPlanDto } from "@dtos/ip-plans/update-ip-plan.dto";
 import { BaseHttpResponse } from "../base-http-response";
 
 export class IpPlanController {

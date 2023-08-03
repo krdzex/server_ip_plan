@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
-import { ServerService } from "../../logic/services/server.service";
-import { UpdateServerDto } from "../../data/dtos/servers/update-server.dto";
-import { CreateServerDto } from "../../data/dtos/servers/create-server.dto";
+import { ServerService } from "@services/server.service";
+import { UpdateServerDto } from "@dtos/servers/update-server.dto";
+import { CreateServerDto } from "@dtos/servers/create-server.dto";
 import { BaseHttpResponse } from "../base-http-response";
 
 export class ServerController {
