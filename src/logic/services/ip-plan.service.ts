@@ -4,7 +4,7 @@ import { UpdateIpPlanDto } from "../../data/dtos/ip-plans/update-ip-plan.dto";
 import { PaginateOptions } from "../../data/dtos/pagination/pagination-options";
 import { PaginatedResult } from "../../data/dtos/pagination/pagination-result";
 import { IIpPlanRepository } from "../../data/interfaces/ip-plan-repository.interface";
-import { IpPlanNotFoundException } from "../exceptions/ip-plan-not-found.exception";
+import { IpPlanNotFoundException } from "../exceptions/custom-exceptions/ip-plan-not-found.exception";
 
 export class IpPlanService {
   constructor(private readonly _ipPlanRepo: IIpPlanRepository) {}

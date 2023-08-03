@@ -1,4 +1,4 @@
-import { ValidationException } from "../../../logic/exceptions/validation.exception";
+import { ValidationException } from "../../../logic/exceptions/custom-exceptions/validation.exception";
 
 export class UpdateIpPlanDto {
   constructor(
