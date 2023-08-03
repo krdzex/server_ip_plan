@@ -28,8 +28,8 @@ const ErrorHandler = (
   }
 
   if (err instanceof Error) {
-    const response = BaseHttpResponse.failed(err.message, 500);
-    return res.status(response.statusCode).json(response);
+    const response = BaseHttpResponse.failed("Internal server error", 500);
+    return res.status(response.statusCode).json({ msg: response.msg });
   }
 
   next();
