@@ -1,4 +1,4 @@
-import { ServerStatus } from "@prisma/client"
+import { ServerStatus } from "@prisma/client";
 import { IpPlanDto } from "../ip-plans/ip-plan.dto";
 
 export class ServerWithPlanDto {

@@ -1,6 +1,10 @@
 import { ServerStatus } from "@prisma/client";
 import { ValidationException } from "../../../logic/exceptions/validation.exception";
 
+function isValidStatus(status: string): boolean {
+  return Object.values(ServerStatus).includes(status as ServerStatus);
+}
+
 export class CreateServerDto {
   constructor(
     public readonly name: string,
@@ -21,17 +25,15 @@ export class CreateServerDto {
     if (!body.description) {
       errors.description = "Description is required field";
     } else if (body.description.length > 1000) {
-      errors.name = "Description cant be loner then 1000 characters";
+      errors.description = "Description cant be loner then 1000 characters";
     }
 
     if (!body.status) {
       errors.status = "Status is required field";
-    } else if (
-      body.status != ServerStatus.ONLINE ||
-      body.status ||
-      ServerStatus.OFFLINE
-    ) {
-      errors.status = "Status can only be offline or online";
+    } else if (!isValidStatus(body.status)) {
+      errors.status =
+        "Status must be one of the following: " +
+        Object.values(ServerStatus).join(", ");
     }
 
     if (!body.ipPlanId) {

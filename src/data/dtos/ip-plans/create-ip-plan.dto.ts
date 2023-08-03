@@ -19,7 +19,7 @@ export class CreateIpPlanDto {
     if (!body.description) {
       errors.description = "Description is required field";
     } else if (body.description.length > 1000) {
-      errors.name = "Description cant be loner then 1000 characters";
+      errors.description = "Description cant be loner then 1000 characters";
     }
 
     if (!body.price) {
