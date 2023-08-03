@@ -1,4 +1,4 @@
 export type PaginateOptions = {
-  page?: number;
+  page: number | 7;
   take?: number;
 };

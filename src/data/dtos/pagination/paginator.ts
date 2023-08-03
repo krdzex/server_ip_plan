@@ -3,7 +3,8 @@ import { PaginatedResult } from "./pagination-result";
 
 export const paginate = async <T>(
   model: any,
-  options?: PaginateOptions
+  options?: PaginateOptions,
+  select?: any
 ): Promise<PaginatedResult<T>> => {
   const page = options?.page || 1;
   const take = options?.take || 7;
@@ -13,6 +14,7 @@ export const paginate = async <T>(
   const [totalCount, data] = await Promise.all([
     model.count(),
     model.findMany({
+      select,
       take,
       skip,
     }),

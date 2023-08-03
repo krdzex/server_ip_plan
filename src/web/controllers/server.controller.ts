@@ -61,4 +61,21 @@ export class ServerController {
       next(err);
     }
   }
+
+  async getServersPagination(req: Request, res: Response, next: NextFunction) {
+    try {
+      const page = Number(req.query.page);
+      const take = Number(req.query.take);
+
+      const serversPagination = await this.serverService.getServersPagination({
+        page,
+        take,
+      });
+
+      const response = BaseHttpResponse.success(serversPagination);
+      res.json(response.data);
+    } catch (err) {
+      next(err);
+    }
+  }
 }

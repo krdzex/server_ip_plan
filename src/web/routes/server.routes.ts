@@ -7,6 +7,10 @@ import { UpdateServerDto } from "../../data/dtos/servers/update-server.dto";
 const serverRouter = express.Router();
 
 serverRouter.get("/:id", serverController.getServerById.bind(serverController));
+serverRouter.get(
+  "/",
+  serverController.getServersPagination.bind(serverController)
+);
 
 serverRouter.put(
   "/:id",

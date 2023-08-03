@@ -5,6 +5,8 @@ import { CreateServerDto } from "../../data/dtos/servers/create-server.dto";
 import { ServerNotFoundException } from "../exceptions/server-not-found.exception";
 import { IIpPlanRepository } from "../../data/interfaces/ip-plan-repository.interface";
 import { IpPlanNotFoundException } from "../exceptions/ip-plan-not-found.exception";
+import { PaginateOptions } from "../../data/dtos/pagination/pagination-options";
+import { PaginatedResult } from "../../data/dtos/pagination/pagination-result";
 
 export class ServerService {
   constructor(
@@ -50,5 +52,15 @@ export class ServerService {
     }
 
     return await this._serverRepo.createServer(server);
+  }
+
+  async getServersPagination(
+    options: PaginateOptions
+  ): Promise<PaginatedResult<ServerWithPlanDto>> {
+    const getServersPagination = await this._serverRepo.getServersPagination(
+      options
+    );
+
+    return getServersPagination;
   }
 }
